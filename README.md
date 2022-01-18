@@ -1,42 +1,11 @@
-type ScopeType = 'state' | 'regional' | 'national' | 'continental' | 'mondial' | 'other'
+# API Soccer
 
-export interface Club {
-  id: string
-  name: string
-  nickname?: string
-  site?: string
-  foundation: string
-  country: string
-  locale?: string
-  mascot?: string
-  history: string
-}
+[Work in Progress]
 
-export interface Legend {
-  name: string
-  position: string
-  avatar: string
-  description: string
-}
+API designed for front-end studying consume.
 
-export interface Tophies {
-  description: string
-  quantity: number
-  scope: ScopeType
-  total: number
-}
+## Start project
 
-export interface Stadium {
-  name: string
-  capacity: number
-  nickname: string
-  foundation: number
-  locale: string
-}
+Just run:
 
-export interface Stats {
-  fans?: string
-  goals?: number
-  wins?: number
-  defeats?: number
-}
+`yarn start`
