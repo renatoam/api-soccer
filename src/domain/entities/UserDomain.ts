@@ -1,23 +1,23 @@
-export class User {
+export class UserDomain {
   public name: string
   public email: string
   public password: string
 
-  constructor(name: string, email: string, password: string) {
+  constructor(name: any, email: any, password: any) {
     this.name = name
     this.email = email
     this.password = password
   }
 
-  private validateName() {
+  public validateName() {
     return typeof this.name === 'string'
   }
 
-  private validateEmail() {
+  public validateEmail() {
     return typeof this.email === 'string'
   }
 
-  private validatePassword() {
+  public validatePassword() {
     return typeof this.password === 'string'
   }
 }
