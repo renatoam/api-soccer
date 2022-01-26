@@ -1,4 +1,4 @@
-import { Club } from "../../types";
+import { Club } from "../models/ClubModels";
 
 export class ClubDomain implements Club {
   public readonly id: string;
