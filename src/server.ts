@@ -1,6 +1,6 @@
 import express from 'express'
 import cors from 'cors'
-import { router } from './adapter/routes/index'
+import { router } from './infrastructure/routes'
 
 const app = express()
 
