@@ -21,6 +21,10 @@ me parece que services são abstratos embora especificos pra tarefa, na camada d
 
 useCases são ou commands ou queries (CQS principle)
 
+CQRS é um CQS em nível arquitetural, separando models que são read (queries) de models que são write (commands)
+
+Aggregates são modelos que lidam com a junção de duas entidades
+
 o melhor jeito de criar dominio é seguir DDD
 
 Validações são domain layer. Nós encapsulamos as validações em Value Objects.
