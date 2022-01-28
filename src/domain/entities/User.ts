@@ -3,6 +3,7 @@ export class User {
   public email: string
   public password: string
 
+  // Tipei com any pra poder fazer os testes
   constructor(name: any, email: any, password: any) {
     this.name = name
     this.email = email
@@ -10,6 +11,9 @@ export class User {
   }
 
   public validateName(name: any) {
+    // mudar isso aqui:
+    // Validações sintáticas não devem ficar no domínio, passar pra useCases
+    // Domínio só possui validações semânticas
     const isNameValid = !!name
     const isNameTypeString = typeof this.name === 'string'
 

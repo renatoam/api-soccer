@@ -1,4 +1,4 @@
-import { ClubDomain } from "../../../src/domain/entities/ClubDomain"
+import { ClubDomain } from "../../../src/domain/entities/Club"
 
 const clubMock: any = {
   id: "1",
