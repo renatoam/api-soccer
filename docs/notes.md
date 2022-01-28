@@ -1,38 +1,51 @@
 # Anotações do estudo
 
-talvez eu possa chamar esses metodos (que estão atualmente nas entities) nos use cases
-mango usa use cases na camada de dominio
-models/domains podem ser interfaces ou types tbm
-Ter apenas uma responsabilidade (S, solid)
-otavio coloca algumas regras de dominio, tipo, validacap de email e nome no dominio/entidade
-no exemplo do projeto do frances, ele não colocou regras no dominio
-Ele coloca os use cases em uma camada de application
-khalil coloca use cases em uma camada de application tbm (ele usa CA com DDD)
-use cases pro khalil (createUser, login, etc)
-pro khalil, cada 'subdominio' (DDD) tem uma cadamada de domain, applicatio, adapter e infrastructure
+## Geral
 
-otavio coloca as regras da app nos casos de uso e todos tem uma interface que define sua forma
-as interfaces definem os metodos que as classes use cases terao
-Há erros personalizados, criados para o dominio pra retornar para os use cases
-cada erro é uma classe baseada na estrutura do DomainError e que estende Error (nativo)
-Use case são os Services? o Service Pattern é usado na camada de use cases?
-no artigo que o khalil explica as diferenças, me parece que os usecases sào de fatos os services da DDD
-me parece que services são abstratos embora especificos pra tarefa, na camada de infra tem ourtos services (?) que implementam especificamente pra um framwork
+### Error Handling
 
-useCases são ou commands ou queries (CQS principle)
+- Há uma forma específica de lidar com erros, criando erros personalizados.
+## Domain/Entities
 
-CQRS é um CQS em nível arquitetural, separando models que são read (queries) de models que são write (commands)
+- Regras inerentes ao negócio, independente do tipo de aplicação, são colocadas no domínio.
+- Pelo que entendi, há um modelo Entity que serve como base pra todas as entities criadas. E cada entity recebe uma interface (Entity<interface>) relacionada a ela.
+- Khalil usa DDD pra definir seus domínios.
+- Pro Khalil, cada **subdomínio** (DDD) tem suas próprias camadas de domain, application, adapter e infrastructure.
+- As entidades possuem valores iniciais e default.
 
-Aggregates são modelos que lidam com a junção de duas entidades
+### [Domain] CQRS
 
-o melhor jeito de criar dominio é seguir DDD
+- CQRS é um CQS em nível arquitetural, separando models que são read (queries) de models que são write (commands)
 
-Validações são domain layer. Nós encapsulamos as validações em Value Objects.
+### [Domain] Domain Service
 
-As vezes precisamos de uma camada a mais depois do dominio, quando uma regra de negócio depende de duas entidades, a Domain Service
+- Algumas vezes precisamos de uma camada a mais no domínio, que é quando uma regra de negócio depende de duas entidades, então criamos a Domain Service.
+- Quando isso ocorre e uma entidade referencia uma outra entidade, usamos o *aggregate root design*.
+- Aggregates são modelos que lidam com a junção de duas entidades.
 
-Se uma entidade referencia uma outra entidade, a gente usa o aggregate root design.
+### [Domain] Domain Event
 
-As entidades possuem valores iniciais e default.
+- Qualquer ação (mesmo um CRUD) relevante para o negócio precisa ter um *Domain Event* criado pra si.
 
-Qualquer ação (mesmo um crud) relevantes para o negócio precisam ter um Domain Event criado
+### [Domain] Validação
+
+- Eu posso colocar validações nas entidades.
+- Geralmente, nas entidades vão as validações **semânticas**, que não tem a ver com a validade do código passado, mas com a violação das regras de negócio.
+- Geralmente, deixamos as validações **sintáticas** fora das entidades do domínio, podendo ficar nos useCases. Segundo Bob Martin, não é tão bom que fique nas controllers, porque poderia ferir o princípio de *Single Responsability*, mas também não é bom que *só* exista no Front-End (mas tem que ter lá também), porque há diversas formas de burlar isso. Parece que os useCases são de fato o melhor lugar.
+- As validações são encapsuladas em **Value Objects**.
+
+## UseCases
+
+- Regras de negócio que variam de acordo com o tipo de aplicação são colocadas nos useCases.
+- Os useCases devem ter apenas uma responsabilidade (o S do solid).
+- O estilo de services que tenho usado (com um único método `execute`) são os useCases.
+- Os services/useCases precisam ser agnósticos a tecnologia, podendo ser implementados por qualquer framework. Na camada de adapters, outros serviços - com estrutura específica ora X framework - são criados implementando o modelo do useCase.
+- O Manguinho usa os useCases na camada de domínio. Não sei se gosto, prefiro separar a camada de forma literal, com uma pasta própria (application).
+
+### [UseCases] CQS
+
+- CQS Principle: useCases são commands e queries.
+
+## Adapters
+
+## Infrastructure
