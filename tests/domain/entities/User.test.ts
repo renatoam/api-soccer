@@ -22,7 +22,7 @@ describe('User domain', () => {
   it('should validateName returns true', () => {
     const user = new User('Renato', 'email', '1234')
 
-    expect(user.validateName()).toBe(true)
+    expect(user.validateName('teste')).toBe(true)
   })
 
   it('should validateEmail returns true', () => {
