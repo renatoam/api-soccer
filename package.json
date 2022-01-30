@@ -4,6 +4,7 @@
   "main": "index.js",
   "author": "Renato Melo",
   "license": "MIT",
+  "type": "module",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^14.2.0",
@@ -23,9 +24,12 @@
     "ts-node": "^10.4.0",
     "typescript": "^4.5.4"
   },
+  "engines": {
+    "node": "14.17.0"
+  },
   "scripts": {
     "server": "nodemon src/index.ts",
-    "start": "node dist/index.js",
+    "start": "node dist/src/index.js",
     "postinstall": "tsc",
     "test": "jest",
     "test:watch": "jest --watch"

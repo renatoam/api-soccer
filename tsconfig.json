@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "module": "ES2020",
-    "target": "esnext",
+    "target": "es2020",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -9,13 +9,12 @@
     "sourceMap": true,
     "outDir": "dist",
     "lib": [
-      "esnext",
+      "es2020",
     ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
   },
