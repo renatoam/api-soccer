@@ -25,7 +25,8 @@
   },
   "scripts": {
     "server": "nodemon src/index.ts",
-    "start": "node src/index.ts",
+    "start": "node dist/index.js",
+    "postinstall": "tsc",
     "test": "jest",
     "test:watch": "jest --watch"
   }
