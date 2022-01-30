@@ -9,6 +9,8 @@ function fakePromise() {
   })
 }
 
+router.get('/', (_, response: Response) => response.send('Welcome to the API Soccer!'))
+
 router.get('/clubs', async (request: Request, response: Response) => {
   const club = await fakePromise()
 
