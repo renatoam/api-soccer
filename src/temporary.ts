@@ -1,5 +1,5 @@
 import { Request, Response, Router } from "express";
-import { clubMock } from "../docs/mock-content";
+import { clubMock } from "./mock-content";
 
 const router = Router()
 
