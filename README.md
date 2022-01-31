@@ -4,12 +4,10 @@
 
 > API designed for consuming by front-end students.
 
-The API is for registering soccer clubs, its stats, basic information and trophies. So the domain consists in an user to register information about the clubs and the clubs themselves.
+This API is for register and retrieve information about soccer clubs, their stats, basic information and trophies.
 
-The use cases are actually a simple CRUD and Auth operations.
-
-## Start project
+## Start project in development mode
 
 Just run:
 
-`yarn start`
+`yarn server`
