@@ -1,6 +1,7 @@
-import { Club } from "../types/ClubModels";
+import { IClubProps } from "../../shared/types/ClubModels";
+import { Entity } from "./Entity";
 
-export class ClubDomain implements Club {
+export class Club extends Entity<IClubProps> {
   public readonly id: string;
   public readonly name: string;
   public readonly nickname?: string | undefined;
@@ -11,7 +12,8 @@ export class ClubDomain implements Club {
   public readonly mascot?: string | undefined;
   public readonly history: string;
   
-  constructor(club: Club) {
+  constructor(club: IClubProps) {
+    super(club);
     this.id = club.id
     this.name = club.name
     this.nickname = club.nickname

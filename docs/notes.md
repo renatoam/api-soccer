@@ -77,6 +77,11 @@ Pelo meu entendimento, como eu não tenho uma camada Presentation, posso colocar
 ### Domain
 
 Pra criar as entidades, precisamos:
-- criar uma Entity base, que serve como molde pras entidades que iremos criar.
+- Criar uma Entity base, que serve como molde pras entidades que iremos criar.
 - Essa Entity base recebe a interface da entidade que iremos criar como tipo "<IEntidadeProps>".
 - As propriedades dessa interface recebem como tipo (quando for o caso) ValueObjects, pra fazer a validação desses campo, por exemplo, uma prop "email" não receberia "string" como tipo, mas um ValueObject criado pra si, chamado "UserEmail".
+- Para "armazenar uma entidade", usamos um Repository e um Mapper.
+- Repository é um artefato usado pra salvar e recuperar dados de alguma tecnologia de persistência de dados (bd, json file, nosql, etc.).
+- Já um Mapper é um arquivo que mapeia um Domain Object (entidade) para o formato necessário para persistí-lo. E vice versa (mapear um Active Record de volta para um domain object).
+  - Toda vez que usamos um ORM e manipulamos "instâncias das rows do bd", estamos trabalhamos com Active Records, que é um modelo que armazena uma representação em memória de uma row do banco (ou um document, no caso de NoSQL).
+  - No exemplo do Khalil, ele use uma interface UserRepo como base pra implementar um repository específico de User com Sequelize. Aqui me deixa duas dúvidas: posso criar essa interface como uma classe ou é isso mesmo? E a outra, devo ter uma base de repositories genérica na qual UserRepo e todas as outras interfaces se baseiam ou só esse nível já tá bom?

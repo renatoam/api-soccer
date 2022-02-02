@@ -1,6 +1,6 @@
 type ScopeType = 'state' | 'regional' | 'national' | 'continental' | 'mondial' | 'other'
 
-export interface Club {
+export interface IClubProps {
   id: string
   name: string
   nickname?: string
