@@ -1,31 +1,19 @@
+import { Result } from "@/shared/error/Result";
 import { IClubProps } from "../../shared/types/ClubModels";
 import { Entity } from "./Entity";
 
 export class Club extends Entity<IClubProps> {
-  public readonly id: string;
-  public readonly name: string;
-  public readonly nickname?: string | undefined;
-  public readonly site?: string | undefined;
-  public readonly foundation: string;
-  public readonly country: string;
-  public readonly locale?: string | undefined;
-  public readonly mascot?: string | undefined;
-  public readonly history: string;
+  static props: IClubProps;
   
-  constructor(club: IClubProps) {
-    super(club);
-    this.id = club.id
-    this.name = club.name
-    this.nickname = club.nickname
-    this.site = club.site
-    this.foundation = club.foundation
-    this.country = club.country
-    this.locale = club.locale
-    this.mascot = club.mascot
-    this.history = club.history
+  private constructor(props: IClubProps) {
+    super(props);
+    this.props = props
   }
 
-  async validateName() {
-    return this.name && typeof this.name === 'string'
+  // just example
+  public static createClub(id: string, name: string): Result<Club> {
+    if (!id || !name) return Result.fail<Club>('ID or name is invalid.')
+
+    return Result.ok<Club>(new Club(this.props))
   }
 }
