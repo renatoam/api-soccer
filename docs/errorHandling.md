@@ -4,7 +4,7 @@ Há melhores formas de lidar com erros, do que apenas retornando `null`, colocan
 
 ## Null e Throw Error
 
-Quando retornamos `null` nós forçamos o "client" (código que está consumindo isso) a saber com antecedência que algo pode ter dado errado, essa é a única forma dele conseguir lidar com esses erros, por exemplo, com `if (something !== null) { // código se 'true' }`.
+Quando retornamos `null` nós forçamos o "client" (código que está consumindo isso) a saber com antecedência que algo pode ter dado errado, essa é a única forma dele conseguir lidar com esses erros, fazendo um monte de checagem de valores nulos, por exemplo, com `if (something !== null) { // código se 'true' }`.
 
 Porém, nós não dizemos o quê exatamente deu errado nem se essa resposta abrange mais de uma possibilidade de erro (e consequentemente validação), não teríamos como diferenciar as possibilidades.
 
@@ -55,7 +55,7 @@ return Result.ok<User>(new User(userProps))
 
 Imagine que nos exemplos acima, não exista apenas aquela validação, mas várias, por exemplo, um email pode ser verificado se é válido, se já está cadastrado na base, se respeita X ou Y condição. `Result` nos poupa de ter que retornar constructos genéricos, mas não nos poupa de termos diversas validações.
 
-Mas assim como `Result` nos permite trabalhar com erros personalizados, tipados e de acordo com o contexto, temos uma outra abordagem que nos permite abstrair validações do mesmo contexto e trabalhar com as tipagens adequadas, é o `Value Object`.
+Mas assim como `Result` nos permite trabalhar com erros personalizados, tipados e de acordo com o contexto, temos uma outra abordagem que nos permite encapsular validações do mesmo contexto e trabalhar com as tipagens adequadas, é o `Value Object`.
 
 
 Usando `Value Objects`, nós passaríamos de um código assim:
@@ -93,3 +93,71 @@ Para algo como:
 ```
 
 [Leia mais](./cleanArchitecture/domain.md)
+
+O problema dessa abordagem é que ainda teremos uma resposta única para várias possibilidades de erros, o que não resolve nosso problema. Mas e se nós criássemos tipos para os nossos erros?
+
+Nós podemos agrupar todos os tipos de erros em um único tipo, usando o operador OU (|), ou seja, o retorno da validação X pode ser Y ou Z. Para agrupar criar esses tipos de forma padronizada, podemos usar os namespaces do Typescript, assim poderíamos ter algo como:
+
+```typescript
+ export namespace CreateUserError {
+
+  export class UsernameTakenError extends Result<DomainError> {    
+    public constructor (username: string) {
+      super(false, {
+        message: `The username "${username}" has already been taken.`
+      })
+    }
+
+    public static create (username: string): UsernameTakenError {
+      return new UsernameTakenError(username);
+    }
+  }
+
+  export class EmailInvalidError extends Result<DomainError> {    
+    public constructor (email: string) {
+      super(false, {
+        message: `The email "${email}" is invalid.`
+      })
+    }
+
+    public static create (email: string): EmailInvalidError {
+      return new EmailInvalidError(email);
+    }
+  }
+}
+```
+
+E agrupados em um único tipo, ficaria assim:
+
+```typescript
+export type Response = Result<CreateUserError.EmailInvalidError>
+| Result<CreateUserError.UsernameTakenError>
+| Result<any>;
+```
+
+Mas ainda dá pra melhorar, porque podemos agrupar e separar os tipos de erros (Result<CreateUserError.X>) do tipo de sucesso (Result<any>). Isso é bom, porque temos várias possibilidades de erro, mas só uma de sucesso, então seria melhor se "categorizássemos" isso.
+
+Podemos criar um `union type` que é o ou 'falha' ou 'sucesso'. Podemos chamar esse tipo de `Either` ("um ou outro" em inglês). E pra facilitar a legibilidade, podemos chamar o tipo para as falhas de `Left` e o tipo para o sucesso de `Right`. E cada um desses tipos recebe dois tipos também.
+
+Teríamos algo assim:
+
+```typescript
+export type Either<L, A> = Left<L, A> | Right<L, A>;
+
+type Response = Either<
+  CreateUserError.UsernameTakenError | 
+  CreateUserError.EmailInvalidError, 
+  Result<any> // OK 
+>
+
+function createUser (email: string): Result<Email> {    
+    const emailOrError: Either<CreateUserError.EmailInvalidError, 
+      Result<Email>> = Email.create({ email })
+
+    if (emailOrError.isLeft()) {
+      return left(emailOrError.value);
+    }
+  
+    return right(Result.ok());
+  }
+```
