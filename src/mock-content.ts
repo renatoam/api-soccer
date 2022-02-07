@@ -1,7 +1,7 @@
 export const clubMock = {
   club: {
       name: "São Paulo Futebol Clube",
-      nickname: "TRIKAS",
+      nickname: "O mais querido",
       site: "https://spfc.net/",
       foundation: "25 de janeiro de 1930",
       stadium: "Morumbi",
@@ -9,7 +9,8 @@ export const clubMock = {
       state: "São Paulo",
       capacity: "72.039",
       mascot: "Santo Paulo",
-      history: "São Paulo, ou SPFC, é um time de futebol do Brasil. Foi fundado em 25 de janeiro de 1930 e sua sede é na cidade de São Paulo, mais precisamente no bairro do Morumbi. <br> Manda seus jogos no estádio do Morumbi Cícero Pompeu de Toledo, que tem capacidade para mais de setenta mil torcedores, e é o maior estádio particular do futebol brasileiro. <br> É o clube brasileiro com mais conquista no Mundial Interclubes (92, 93 e 05), é um dos clubes que possuem mais libertadores da américa no Brasil, vencendo o torneio por 3x (1992, 1993 e 2005), além das conquistas da sul-americana e recopa.<br> Têm vinte e dois campeonatos paulistas e já foi campeão do campeonato brasileiro por 06 vezes (77, 86, 91, 06, 07 e 08).<br> Seus maiores rivais no futebol brasileiro são o Corinthians, Palmeiras e Santos."
+      rivals: ['Corinthians', 'Palmeiras', 'Santos'],
+      history: "São Paulo, ou SPFC, é um time de futebol do Brasil. Foi fundado em 25 de janeiro de 1930 e sua sede é na cidade de São Paulo, mais precisamente no bairro do Morumbi.<br/> Manda seus jogos no estádio do Morumbi Cícero Pompeu de Toledo, que tem capacidade para mais de setenta mil torcedores, e é o maior estádio particular do futebol brasileiro.<br/> É o clube brasileiro com mais conquista no Mundial Interclubes (1992, 1993 e 2005), é um dos clubes que possuem mais libertadores da américa no Brasil, vencendo o torneio por 3x (1992, 1993 e 2005), além das conquistas da sul-americana e recopa.<br/> Têm vinte e dois campeonatos paulistas e já foi campeão do campeonato brasileiro por 06 vezes (1977, 1986, 1991, 2006,2007 e 08).<br/> Seus maiores rivais no futebol brasileiro são o Sport Clube Corinthians Paulista, Sociedade Esportiva Palmeiras e o Santos Futebol Clube."
   },
   legends: [{
       name: "Rogerio Ceni",
