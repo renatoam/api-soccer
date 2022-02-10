@@ -6,11 +6,15 @@ Há melhores formas de lidar com erros, do que apenas retornando `null`, colocan
 
 Quando retornamos `null` nós forçamos o "client" (código que está consumindo isso) a saber com antecedência que algo pode ter dado errado, essa é a única forma dele conseguir lidar com esses erros, fazendo um monte de checagem de valores nulos, por exemplo, com `if (something !== null) { // código se 'true' }`.
 
-Porém, nós não dizemos o quê exatamente deu errado nem se essa resposta abrange mais de uma possibilidade de erro (e consequentemente validação), não teríamos como diferenciar as possibilidades.
+Porém, retornando `null` não temos como saber que algo deu errado sem olhar para os detalhes da implementação. Teríamos que fazer comparações de comportamento pra saber que se a função se comportou dessa forma pode ter dado certo ou não.
 
-O problema acima provavelmente nos levaria a querer "lançar" (throw) um erro, mas nos faria ter que "encher" nosso código de `trycatch`. Mas o `trycatch` só deve ser usado para erros inesperados ou não previstos, situações em que não somos nós que "criamos" o erro, por exemplo, erros vindo de uma lib, um banco de dados ou qualquer API externa, problemas de conectividade, typos, problemas de memória, etc.
+O problema acima *provavelmente* nos levaria a querer "lançar" (throw) um erro, mas nos faria ter que usar `trycatch` no contexto onde essa função é chamada.
 
-Além disso, `throw` não é `type-safe`, ou seja, não conseguimos tipar, em outras palavras, não conseguimos (nem a IDE) antever os tipos, não podemos validar conversões de tipagem ou coisas do tipo.
+Isso não é necessariamente um grande problema, mas o `trycatch` só deve ser usado para erros inesperados ou não previstos, situações em que não somos nós que "criamos" o erro. Por exemplo, erros vindo de uma lib, um banco de dados ou qualquer API externa, problemas de conectividade, typos, problemas de memória, etc.
+
+Usando `throw` nós não informamos a função 'chamadora' que essa resposta pode ser um erro, nem se abrange mais de uma possibilidade de erro (e consequentemente validação). Além disso, `throw` não é `type-safe`, ou seja, ela não possui uma assinatura clara e tipada e não teríamos como diferenciar as possibilidades, não conseguimos (nem a IDE) antever os tipos, não podemos validar conversões de tipagem ou coisas do tipo.
+
+> *"Since throwing error does not reflect on the method’s signature, all the safety of typed languages such as Typescript becomes useless since you are neither forced nor hinted, as a caller of such method, to do something with that error"*, Vegreville, Bruno.
 
 Há quem diga que além de tudo isso, ainda é muito menos performático do que criar erros personalizados e usando `throw`, nós quebramos o fluxo do nosso código, pulando de 'handler em handler'.
 
