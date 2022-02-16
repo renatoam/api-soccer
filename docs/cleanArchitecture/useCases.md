@@ -8,4 +8,4 @@
 
 ### CQS
 
-- CQS Principle: useCases são commands e queries.
+- CQS Principle: useCases são commands e queries. No princípio CQS, Comandos performam mudanças no sistema, mas não retornam valor, já Queries extraem dados do sistema, mas não tem side effects.
