@@ -1,0 +1,1 @@
+console.log('Centralizar e exportar')
