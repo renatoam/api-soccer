@@ -3,7 +3,8 @@
 - Regras inerentes ao negócio, independente do tipo de aplicação, são colocadas no domínio.
 - Pelo que entendi, há um modelo Entity que serve como base pra todas as entities criadas. E cada entity recebe uma interface (Entity<interface>) relacionada a ela.
 - Khalil usa DDD pra definir seus domínios.
-- Pro Khalil, cada **subdomínio** (DDD) tem suas próprias camadas de domain, application, adapter e infrastructure.
+- Pro Khalil, cada **subdomínio** (DDD) tem suas próprias camadas de domain, application, adapter e infrastructure. Pelo menos, domain e application, é certeza, porque o subdomain hospeda entidades e use cases.
+- Subdomínios não são Entidades.
 - As entidades possuem valores iniciais e default.
 - As entidades possuem identidade, como: User, Job, Organization, etc. Diferente de ValueObjects, que não possuem identidade e parecem como: Name, MessageText, JobTitle, etc.
 - Não está claro pra mim se uma entidade necessariamente precisa de um getter, mas sei que nem sempre cabe um setter, porque alguns valores não podem ser modificados dessa forma.

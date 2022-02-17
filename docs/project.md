@@ -28,11 +28,28 @@ Ao final do jogo, a leaderboard e as pontuações são resetadas e um novo jogo 
 
 ## Subdomain
 
-Club, Player, Comparing, Leaderboard, Score
+Auth, Playing*, Ranking
+
+*: subdomain core, porque é o único que não pode ser terceirizado
+
+## Entities
+
+User [Auth](Admin, Editor, Player), Club [Playing], Game [Playing], Tournament [Ranking], Leaderboard [Ranking]
 
 ## Use Cases
+
+### User
+
+signUp(email: UserEmail, password: UserPassword, confirmPassword: UserPassword)
+signIn(email: UserEmail, password: UserPassword)
+signOut(authToken: JWTToken)
+verifyEmail(emailVerificationToken: EmailVerificationToken)
+changePassword(passwordResetToken: Token, password: UserPassword)
 
 ### Club
 
 GetClubByID(id: string)
 GetAllClubs(filter?: string)
+
+## Events
+## Repositories
