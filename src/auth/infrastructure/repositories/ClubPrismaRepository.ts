@@ -1,5 +1,5 @@
-import { Club } from "@/domain/entities/Club";
-import { ClubCollection, ClubSearchConfig, IClubRepo, Role } from "../../shared/types/ClubRepository";
+import { Club } from "@/auth/domain/entities/Club";
+import { ClubCollection, ClubSearchConfig, IClubRepo, Role } from "../../../shared/types/ClubRepository";
 
 
 export class PrismaClubRepo implements IClubRepo {
@@ -8,8 +8,12 @@ export class PrismaClubRepo implements IClubRepo {
   constructor (prismaModels: any) {
     this.prismaModels = prismaModels;
   }
+  
+  delete(t: Club): Promise<any> {
+    throw new Error("Method not implemented.");
+  }
 
-  exists (clubId: string): Promise<boolean> {
+  exists (club: Club): Promise<boolean> {
     // implement specific algorithm using prisma orm
     return new Promise(() => true)
   }
@@ -32,7 +36,7 @@ export class PrismaClubRepo implements IClubRepo {
     return new Promise(() => true)
   }
 
-  getClub(clubId: string): Promise<any> {
+  getClubById(clubId: string): Promise<any> {
     // implement specific algorithm using prisma orm
     return new Promise(() => true)
   }
