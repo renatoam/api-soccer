@@ -1,7 +1,8 @@
 import { Club } from "@/auth/domain/entities/Club";
-import { ClubCollection, ClubSearchConfig, IClubRepo, Role } from "../../../shared/types/ClubRepository";
+import { ClubCollection, ClubSearchConfig, IClubRepo, Role } from "../../shared/types/ClubRepository";
 
-
+// o nome não precisa ter a referencia ao ORM, eu só deixei pra clarificar
+// Aqui, eu uso o Prisma pra fazer o que cada método pede
 export class PrismaClubRepo implements IClubRepo {
   private prismaModels: any;
 
