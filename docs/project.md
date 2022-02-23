@@ -34,7 +34,7 @@ Auth, Playing*, Ranking
 
 ## Entities
 
-User [Auth](Admin, Editor, Player), Club [Playing], Game [Playing], Tournament [Ranking], Leaderboard [Ranking]
+User (*pode ser Admin, Editor, Player*) [Auth], Club [Playing], Game [Playing], Tournament [Ranking], Leaderboard [Ranking]
 
 ## Use Cases
 

@@ -8,6 +8,7 @@
 - As entidades possuem valores iniciais e default.
 - As entidades possuem identidade, como: User, Job, Organization, etc. Diferente de ValueObjects, que não possuem identidade e parecem como: Name, MessageText, JobTitle, etc.
 - Não está claro pra mim se uma entidade necessariamente precisa de um getter, mas sei que nem sempre cabe um setter, porque alguns valores não podem ser modificados dessa forma.
+- Lógica de domínio precisa estar sempre o mais próximo possível da entidade, caso contrário, precisa estar nos Domain Services.
 
 ### CQRS
 
