@@ -8,6 +8,10 @@ A quantidade de rodadas até o fim do torneio é definida pela quantidade de tim
 
 Ao final do jogo, a leaderboard e as pontuações são resetadas e um novo jogo é iniciado. O histórico de jogos e títulos são mantidos para consultas futuras.
 
+## Pontuação e valores
+
+
+
 ## O jogo
 
 - O `Player` se **registra** e **escolhe um clube** favorito.
