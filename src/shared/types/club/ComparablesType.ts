@@ -5,24 +5,48 @@ export interface Legend<T = {}> {
   name: string
   avatar: string
   description: string
-  trophies: number
-  caps: number
-  position: Position<T>
+  trophies: {
+    compare: boolean
+    quantity: number
+  }
+  caps: {
+    compare: boolean
+    quantity: number
+  }
+  position: {
+    compare: boolean
+    attributes: Position<T>
+  }
 }
 
 export interface Stadium {
   name: string
-  capacity: number
+  capacity: {
+    compare: boolean
+    quantity: number
+  }
   nickname: string
   foundation: number
   locale: string
 }
 
 export interface Stats {
-  fans?: string
-  goals?: number
-  wins?: number
-  defeats?: number
+  fansInMillions?: {
+    compare: boolean
+    quantity: number
+  }
+  goals?: {
+    compare: boolean
+    quantity: number
+  }
+  wins?: {
+    compare: boolean
+    quantity: number
+  }
+  defeats?: {
+    compare: boolean
+    quantity: number
+  }
 }
 
 export interface Comparables {

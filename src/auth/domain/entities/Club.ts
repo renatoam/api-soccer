@@ -1,5 +1,5 @@
 import { Result } from "@/shared/error/Result";
-import { IClubProps } from "../../shared/types/ClubModels";
+import { IClubProps } from "../../../shared/types/club/ClubType";
 import { Entity } from "./Entity";
 
 export class Club extends Entity<IClubProps> {

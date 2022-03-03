@@ -11,6 +11,6 @@ export interface IClubProps {
   locale?: string
   foundation: string
   site?: string
-  comparables: Comparables
   history: string
+  comparables: Comparables
 }
