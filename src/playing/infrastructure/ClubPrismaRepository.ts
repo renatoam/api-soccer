@@ -1,5 +1,5 @@
-import { Club } from "@/auth/domain/entities/Club";
-import { ClubCollection, ClubSearchConfig, IClubRepo, Role } from "../../shared/types/ClubRepository";
+import { Club } from "@/playing/domain/entities/Club";
+import { ClubCollection, ClubSearchConfig, IClubRepo, Role } from "./ClubRepository";
 
 // o nome não precisa ter a referencia ao ORM, eu só deixei pra clarificar
 // Aqui, eu uso o Prisma pra fazer o que cada método pede

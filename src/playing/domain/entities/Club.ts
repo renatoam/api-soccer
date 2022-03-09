@@ -1,6 +1,6 @@
 import { Result } from "@/shared/error/Result";
 import { IClubProps } from "../../../shared/types/club/ClubType";
-import { Entity } from "./Entity";
+import { Entity } from "../../../auth/domain/entities/Entity";
 
 export class Club extends Entity<IClubProps> {
   static props: IClubProps;
