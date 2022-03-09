@@ -1,20 +1,4 @@
-# The Biggest Club
-
-[REVISAR] O jogo consiste de um jogador que escolhe um clube e compara os atributos desse clube com outros clubes (que também são comparados entre si) superando-os em batalha até que tenha enfrentado todos. Ao final, o clube com mais pontos, se torna o campeão.
-
-O jogador só poderá escolher uma categoria por adversário. As opções escolhidas dessa categoria são limitadas em 3, ou seja, 3 turnos por rodada. Os pontos definidos pra cada opção é definida pelo jogo e seus critérios ficarão registrados em algum menu de ajuda.
-
-A quantidade de rodadas até o fim do torneio é definida pela quantidade de times registrados e qual formato escolhido pelo jogador, se pontos corridos ou mata-mata. Se o formato escolhido for pontos corridos, cada clube terá que jogar a quantidade de clubes menos um (ele mesmo) pra chegar ao fim. Caso o formato seja de mata-mata, cada rodada tem um clube eliminado, até que sobrem apenas dois, que farão a grande final.
-
-Ao final do jogo, a leaderboard e as pontuações são resetadas e um novo jogo é iniciado. O histórico de jogos e títulos são mantidos para consultas futuras.
-
-Assim como nas regras do futebol oficial a pontuação segue os seguintes critérios:
-
-- **Vitória**: 3 pontos
-- **Empate**: 1 ponto
-- **Derrota**: 0 pontos
-
-Os critérios de desempate são (nesta ordem): `vitórias`, `confronto direto`, `quantidade de lendas`.
+# Architecture
 
 ## Subdomínios
 
