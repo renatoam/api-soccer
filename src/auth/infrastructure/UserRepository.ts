@@ -1,4 +1,4 @@
-import { Repo } from "@shared/types/Repository";
+import { Repo } from "@shared/models/Repository";
 import { User } from "@auth/domain/entities/User";
 
 interface IUserRepo extends Repo<User> {}

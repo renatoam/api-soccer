@@ -1,5 +1,5 @@
 import { Result } from "@shared/error/Result";
-import { UseCase } from "@shared/types/UseCase";
+import { UseCase } from "@shared/models/UseCase";
 
 // simulando uma classe User. ignorar essa estrutura, é tudo inventado baseado em nada, só pra conseguir seguir no exemplo do artigo
 class User {

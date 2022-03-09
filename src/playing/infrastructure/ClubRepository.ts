@@ -1,5 +1,5 @@
 import { Club } from "@playing/domain/entities/Club"; 
-import { Repo } from "@shared/types/Repository";
+import { Repo } from "@shared/models/Repository";
 
 // Isso não vem do exemplo, é provisório
 export type ClubCollection = Club[]

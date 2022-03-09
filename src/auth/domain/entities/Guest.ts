@@ -1,4 +1,4 @@
-import { Entity } from "./Entity"
+import { Entity } from "@shared/models/Entity"
 
 interface GuestProps {
   name: string
