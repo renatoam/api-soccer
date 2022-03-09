@@ -1,4 +1,4 @@
-import { Club } from "@/playing/domain/entities/Club";
+import { Club } from "@playing/domain/entities/Club";
 import { ClubCollection, ClubSearchConfig, IClubRepo, Role } from "./ClubRepository";
 
 // o nome não precisa ter a referencia ao ORM, eu só deixei pra clarificar

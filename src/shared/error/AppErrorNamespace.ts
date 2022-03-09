@@ -3,7 +3,7 @@
  * @http 500
  */
 
-import { DomainError } from "../types/DomainError";
+import { DomainError } from "@shared/types/DomainError";
 import { Result } from "./Result";
 
  export namespace AppError {

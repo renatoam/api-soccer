@@ -1,4 +1,4 @@
-import { Entity } from "../domain/entities/Entity";
+import { Entity } from "@auth/domain/entities/Entity";
 
 type RoleType = 'ADMIN' | 'EDITOR' | 'PLAYER'
 

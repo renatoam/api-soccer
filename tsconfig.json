@@ -8,7 +8,11 @@
     "rootDirs": ["src", "tests"],
     "baseUrl": "src",
     "paths": {
-      "@/tests/*": ["../tests/*"],
+      "@auth/*": ["auth/*"],
+      "@playing/*": ["playing/*"],
+      "@ranking/*": ["ranking/*"],
+      "@shared/*": ["shared/*"],
+      "@tests/*": ["./tests/*"],
       "@/*": ["*"]
     }
   },

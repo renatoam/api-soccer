@@ -1,5 +1,5 @@
-import { Mapper } from "@/shared/mappers/Mapper";
-import { User } from "@/auth/domain/entities/User";
+import { Mapper } from "@shared/mappers/Mapper";
+import { User } from "@auth/domain/entities/User";
 
 export class UserMap implements Mapper<User> {
   toDomain(raw: any): User {
