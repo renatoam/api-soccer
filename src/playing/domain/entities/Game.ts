@@ -1,6 +1,6 @@
-import { Result } from "@shared/error/Result";
+import { Result } from "@shared/core/Result";
 import { IGameProps } from "@playing/types/GameType";
-import { Entity } from "@shared/models/Entity";
+import { Entity } from "@shared/domain/Entity";
 
 export class Game extends Entity<IGameProps> {
   static props: IGameProps;

@@ -1,4 +1,4 @@
-import { Entity } from "@shared/models/Entity";
+import { Entity } from "@shared/domain/Entity";
 
 type RoleType = 'ADMIN' | 'EDITOR' | 'PLAYER'
 

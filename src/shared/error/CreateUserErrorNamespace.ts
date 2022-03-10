@@ -2,8 +2,8 @@
  * @desc CreateUser errors
  */
 
- import { DomainError } from "@shared/models/DomainError";
- import { Result } from "./Result";
+ import { DomainError } from "@shared/error/DomainError";
+ import { Result } from "@shared/core/Result";
 
  export namespace CreateUserError {
 

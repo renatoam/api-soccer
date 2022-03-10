@@ -1,6 +1,6 @@
-import { Result } from "@shared/error/Result";
+import { Result } from "@shared/core/Result";
 import { ILeaderboardProps } from "@ranking/types/LeaderboardType";
-import { Entity } from "@shared/models/Entity";
+import { Entity } from "@shared/domain/Entity";
 
 export class Leaderboard extends Entity<ILeaderboardProps> {
   static props: ILeaderboardProps;

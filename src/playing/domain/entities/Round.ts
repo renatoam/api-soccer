@@ -1,6 +1,6 @@
-import { Result } from "@shared/error/Result";
+import { Result } from "@shared/core/Result";
 import { IRoundProps } from "@playing/types/RoundType";
-import { Entity } from "@shared/models/Entity";
+import { Entity } from "@shared/domain/Entity";
 
 export class Round extends Entity<IRoundProps> {
   static props: IRoundProps;

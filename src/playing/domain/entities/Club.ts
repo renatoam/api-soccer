@@ -1,6 +1,6 @@
-import { Result } from "@shared/error/Result";
+import { Result } from "@shared/core/Result";
 import { IClubProps } from "@playing/types/club/ClubType";
-import { Entity } from "@shared/models/Entity";
+import { Entity } from "@shared/domain/Entity";
 
 export class Club extends Entity<IClubProps> {
   static props: IClubProps;

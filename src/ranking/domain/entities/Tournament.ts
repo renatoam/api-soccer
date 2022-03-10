@@ -1,6 +1,6 @@
-import { Result } from "@shared/error/Result";
+import { Result } from "@shared/core/Result";
 import { ITournamentProps } from "@ranking/types/TournamentType";
-import { Entity } from "@shared/models/Entity";
+import { Entity } from "@shared/domain/Entity";
 
 export class Tournament extends Entity<ITournamentProps> {
   static props: ITournamentProps;
