@@ -1,3 +1,5 @@
 Domain:
   ☐ Definir regras de negócio
     - Ex.: não pode adicionar o mesmo club duas vezes; checar/garantir valores obrigatórios;
+
+Primeiro, estou misturando DDD com CA. Vou focar em CA primeiro e depois penso em modelar o domínio com DDD. Por exemplo, Value Objects, Aggregates, Domain Services, Repositories (apesar que tem em CA tbm) são coisas da DDD.
