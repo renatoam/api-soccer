@@ -42,6 +42,9 @@
 - O `Player` **escolhe uma `option`** dessa `category` para comparar. Se o escolhido pra começar a partida for do tipo `cpu`, a `option` é escolhida aleatoriamente. Se a `option` escolhida for `position`, será necessário escolher um `attribute` dessa `option` para realizar a comparação.
   > *Obs.: se o `attribute` escolhido não estiver presente na `option` do adversário, um `attribute` aleatório será escolhido no lugar. Ex.: se a `option` escolhida for `position`, sendo o tipo passado `goalkeeper` e `handling` escolhido como `attribute`, a menos que o adversário tenha um `goalkeeper` também, o `attribute` comparado será diferente.*
 
+> Categorias, options e atributos possuem multipliers, que é um valor a ser multiplicado pela vitória, empate ou derrota e contabilizado na rodada (e no ranking) para o clube
+> Ainda a definir os multipliers
+
 ### Player e Tournament (Domain Service)
 
 - O `Player` **cria e inicia** um novo `Tournament`, informando seu `format`.
