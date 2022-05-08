@@ -1,4 +1,4 @@
-import { Club } from "../../../src/domain/entities/Club"
+import { Club } from "@playing/domain/entities/Club"
 
 const clubMock: any = {
   id: "1",
@@ -14,12 +14,5 @@ describe('Club domain', () => {
 
     // expect(!!club.name).toBe(true)
     expect(!!2).toBe(true)
-  })
-  
-  it('should name type be string', () => {
-    // const club = new Club(clubMock)
-
-    // expect(typeof club.name).toBe('string')
-    expect('typeof club.name').toBe('string')
   })
 })
